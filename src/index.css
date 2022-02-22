@@ -17,8 +17,52 @@ code {
   min-height: 100vh;
   flex-direction: column;
   text-align: center;
-  background-color: #131A28;
-  color: white;
+  color: #494848;
   justify-content: center;
   align-items: center;
+}
+
+.heading-text {
+  color: #DF3749;
+  font-size: 42px;
+  font-weight: bolder;
+  text-align: center;
+  margin: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.square {
+  min-width: 100px;
+  min-height: 100px;
+  font-size: 64px;
+  text-align: center;
+  color: #DF3749;
+  font-weight: bolder;
+  padding: 30px;
+}
+
+.border-bottom-right {
+  border-right: 15px solid #DF3749;
+  border-bottom: 15px solid #DF3749;
+}
+
+.border-bottom {
+  border-bottom: 15px solid #DF3749;
+}
+
+.border-right {
+  border-right: 15px solid #DF3749;
 }
