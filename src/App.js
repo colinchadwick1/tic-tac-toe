@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Square from "./components/Square";
 const initialState = ["", "", "", "", "", "", "", "", ""];
+const initialScore = {
+  X: 0,
+  O: 0,
+};
 
 function App() {
+  const initialScore = {
+    X: 0,
+    O: 0,
+  };
   const [gameState, setGameState] = useState(initialState);
   const [isX, setIsX] = useState(false);
+  const [score, setScore] = useState(initialScore);
 
   const handleClick = (index) => {
     let strings = Array.from(gameState);
-    strings[index] = isX ? "X" : "0";
+    if (strings[index] == "") strings[index] = isX ? "X" : "O";
     setGameState(strings);
     setIsX(!isX);
+    console.log(isX);
   };
   useEffect(() => {
     const winner = checkWinner();
@@ -20,7 +30,7 @@ function App() {
     }
   }, [gameState]);
 
-  const checkWinner =()=>{
+  const checkWinner = () => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -30,22 +40,30 @@ function App() {
       [2, 5, 8],
       [0, 4, 8],
       [2, 4, 6],
-  ];
-  console.log('Class: App, Function: checkWinner ==', gameState[0], gameState[1], gameState[2]);
-  for (let i = 0; i < lines.length; i++) {
+    ];
+    for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-          return gameState[a];
+      if (
+        gameState[a] &&
+        gameState[a] === gameState[b] &&
+        gameState[a] === gameState[c]
+      ) {
+        score[gameState[a]]++;
+        // if (gameState[a] === "X") score[0]++;
+        // else if (gameState[a] === "0") score[1]++;
+        console.log(gameState[a], "gamestateA");
+        return gameState[a];
       }
-  }
-  return null;
-
-  }
-
+    }
+    return null;
+  };
 
   return (
     <div className="app-header">
       <h2 className="heading-text">TIC TAC TOE</h2>
+      <h3>O wins: {score.O} </h3>
+      <h3>X wins: {score.X} </h3>
+
       <div className="row jc-center">
         <Square
           className="border-bottom-right"
