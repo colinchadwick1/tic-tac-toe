@@ -17,10 +17,12 @@ function App() {
 
   const handleClick = (index) => {
     let strings = Array.from(gameState);
-    if (strings[index] == "") strings[index] = isX ? "X" : "O";
-    setGameState(strings);
-    setIsX(!isX);
-    console.log(isX);
+    if (strings[index] == "") {
+      strings[index] = isX ? "X" : "O";
+      setGameState(strings);
+      setIsX(!isX);
+      console.log(isX);
+    }
   };
   useEffect(() => {
     const winner = checkWinner();
@@ -49,8 +51,7 @@ function App() {
         gameState[a] === gameState[c]
       ) {
         score[gameState[a]]++;
-        // if (gameState[a] === "X") score[0]++;
-        // else if (gameState[a] === "0") score[1]++;
+  
         console.log(gameState[a], "gamestateA");
         return gameState[a];
       }
@@ -61,8 +62,6 @@ function App() {
   return (
     <div className="app-header">
       <h2 className="heading-text">TIC TAC TOE</h2>
-      <h3>O wins: {score.O} </h3>
-      <h3>X wins: {score.X} </h3>
 
       <div className="row jc-center">
         <Square
@@ -110,6 +109,10 @@ function App() {
           onClick={() => handleClick(7)}
         />
         <Square state={gameState[8]} onClick={() => handleClick(8)} />
+      </div>
+      <div className="score-board">
+        <div className="x-score">{score.X}</div>
+        <div className="o-score">{score.O}</div>
       </div>
       <button className="clear" onClick={() => setGameState(initialState)}>
         Clear Game
