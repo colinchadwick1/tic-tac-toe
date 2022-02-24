@@ -32,7 +32,7 @@ const initialScore = {
   O: 0,
 };
 
-function FourBoard() {
+function FiveBoard() {
   const initialScore = {
     X: 0,
     O: 0,
@@ -58,8 +58,6 @@ function FourBoard() {
     }
   }, [gameState]);
 
- 
-
   const checkWinner = () => {
     const lines = [
       [0, 1, 2],
@@ -81,7 +79,7 @@ function FourBoard() {
       [2, 8, 14],
       [4, 8, 12],
       [3, 7, 11],
-      [2, 6, 10]
+      [2, 6, 10],
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c, d] = lines[i];
@@ -99,14 +97,9 @@ function FourBoard() {
     return null;
   };
 
-
   return (
     <div className="app-header">
-      <h2 className="heading-text">TIC TAC TOE</h2>
-      {isX ?
-              <p>X's turn</p>
-          :
-          <p>O's turn</p> }
+      {isX ? <p>X's turn</p> : <p>O's turn</p>}
 
       <div className="row jc-center">
         <Square
@@ -200,4 +193,4 @@ function FourBoard() {
   );
 }
 
-export default FourBoard;
+export default FiveBoard;

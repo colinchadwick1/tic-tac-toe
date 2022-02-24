@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Square from "./components/Square";
 import ThreeBoard from "./components/ThreeBoard";
-import FourBoard from "./components/FourBoard";
+import FiveBoard from "./components/FiveBoard";
 
 
 function App() {
@@ -18,21 +18,25 @@ function App() {
   };
 
 return (
-  <>
-  <button 
+  <div className="wrapper">
+  <button
+  className="size"
   name="three"
-  onClick={(e => handleOnClick(e.target.name))} >Three</button>
+  onClick={(e => handleOnClick(e.target.name))} >3x3</button>
   <button 
+  className="size"
   name="five"
-  onClick={(e => handleOnClick(e.target.name))} >Five</button>
+  onClick={(e => handleOnClick(e.target.name))} >5x5</button>
+        <h2 className="heading-text">O's and X's</h2>
+
   {size === "three" ? (
     <ThreeBoard></ThreeBoard>
 
   ):(
 
-  <FourBoard></FourBoard>
+  <FiveBoard></FiveBoard>
   )}
-  </>
+  </div>
   );
 }
 
