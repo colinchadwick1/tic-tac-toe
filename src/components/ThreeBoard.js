@@ -70,7 +70,6 @@ function ThreeBoard() {
     
           <div className="row jc-center">
             <Square
-            style = { isX ? {color: 'red'} : {color: 'green'}}
               className="border-bottom-right"
               state={gameState[0]}
               onClick={() => handleClick(0)}
