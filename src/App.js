@@ -1,123 +1,38 @@
 import React, { useState, useEffect } from "react";
 import Square from "./components/Square";
-const initialState = ["", "", "", "", "", "", "", "", ""];
-const initialScore = {
-  X: 0,
-  O: 0,
-};
+import ThreeBoard from "./components/ThreeBoard";
+import FourBoard from "./components/FourBoard";
+
 
 function App() {
-  const initialScore = {
-    X: 0,
-    O: 0,
-  };
-  const [gameState, setGameState] = useState(initialState);
-  const [isX, setIsX] = useState(false);
-  const [score, setScore] = useState(initialScore);
+  const [size, setSize] = useState("three")
 
-  const handleClick = (index) => {
-    let strings = Array.from(gameState);
-    if (strings[index] == "") {
-      strings[index] = isX ? "X" : "O";
-      setGameState(strings);
-      setIsX(!isX);
-      console.log(isX);
+  const handleOnClick = (name) => {
+    if (name === "three") {
+      setSize("three");
+      console.log(size)
+    } else if (name === "five") {
+      setSize("five");
+      console.log(size)
     }
   };
-  useEffect(() => {
-    const winner = checkWinner();
-    if (winner) {
-      alert(`${winner} has won`);
-      setGameState(initialState);
-    }
-  }, [gameState]);
 
-  const checkWinner = () => {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (
-        gameState[a] &&
-        gameState[a] === gameState[b] &&
-        gameState[a] === gameState[c]
-      ) {
-        score[gameState[a]]++;
-  
-        console.log(gameState[a], "gamestateA");
-        return gameState[a];
-      }
-    }
-    return null;
-  };
+return (
+  <>
+  <button 
+  name="three"
+  onClick={(e => handleOnClick(e.target.name))} >Three</button>
+  <button 
+  name="five"
+  onClick={(e => handleOnClick(e.target.name))} >Five</button>
+  {size === "three" ? (
+    <ThreeBoard></ThreeBoard>
 
-  return (
-    <div className="app-header">
-      <h2 className="heading-text">TIC TAC TOE</h2>
+  ):(
 
-      <div className="row jc-center">
-        <Square
-          className="border-bottom-right"
-          state={gameState[0]}
-          onClick={() => handleClick(0)}
-        />
-        <Square
-          className="border-bottom-right"
-          state={gameState[1]}
-          onClick={() => handleClick(1)}
-        />
-        <Square
-          className="border-bottom"
-          state={gameState[2]}
-          onClick={() => handleClick(2)}
-        />
-      </div>
-      <div className="row jc-center">
-        <Square
-          className="border-bottom-right"
-          state={gameState[3]}
-          onClick={() => handleClick(3)}
-        />
-        <Square
-          className="border-bottom-right"
-          state={gameState[4]}
-          onClick={() => handleClick(4)}
-        />
-        <Square
-          className="border-bottom"
-          state={gameState[5]}
-          onClick={() => handleClick(5)}
-        />
-      </div>
-      <div className="row jc-center">
-        <Square
-          className="border-right"
-          state={gameState[6]}
-          onClick={() => handleClick(6)}
-        />
-        <Square
-          className="border-right"
-          state={gameState[7]}
-          onClick={() => handleClick(7)}
-        />
-        <Square state={gameState[8]} onClick={() => handleClick(8)} />
-      </div>
-      <div className="score-board">
-        <div className="x-score">{score.X}</div>
-        <div className="o-score">{score.O}</div>
-      </div>
-      <button className="clear" onClick={() => setGameState(initialState)}>
-        Clear Game
-      </button>
-    </div>
+  <FourBoard></FourBoard>
+  )}
+  </>
   );
 }
 
