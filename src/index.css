@@ -72,7 +72,7 @@ code {
   width: 320px;
   display: grid;
   grid-auto-flow: column;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .score-board div {
@@ -86,10 +86,6 @@ code {
 
 .score-board div:first-child {
   background-color: #cd493a;
-}
-
-.score-board {
-  margin: 10px;
 }
 
 .X {
