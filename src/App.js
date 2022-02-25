@@ -36,7 +36,7 @@ function App() {
         )}
       </div>
 
-      {size === "three" ? <ThreeBoard/> : <FiveBoard/>}
+      {size === "three" ? <ThreeBoard /> : <FiveBoard />}
     </div>
   );
 }

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Square from "./Square";
 
-
 function ThreeBoard() {
   const initialState = ["", "", "", "", "", "", "", "", ""];
-const initialScore = {
-  X: 0,
-  O: 0,
-};
+  const initialScore = {
+    X: 0,
+    O: 0,
+  };
   const [gameState, setGameState] = useState(initialState);
   const [isX, setIsX] = useState(false);
   const [score, setScore] = useState(initialScore);
@@ -22,15 +21,14 @@ const initialScore = {
   };
   useEffect(() => {
     const winner = checkWinner();
-    const draw = checkDraw()
+    const draw = checkDraw();
     if (winner) {
       alert(`${winner} has won`);
       setGameState(initialState);
     }
-    if(draw && !winner) {
+    if (draw && !winner) {
       alert("It's a draw");
       setGameState(initialState);
-
     }
   }, [gameState]);
 
@@ -62,13 +60,20 @@ const initialScore = {
 
   const checkDraw = () => {
     let strings = Array.from(gameState);
-    const draw = !strings.includes("")
-    return draw
-
-  }
+    const draw = !strings.includes("");
+    return draw;
+  };
   return (
     <div className="board">
-      {isX ? <p><strong>X</strong>'s turn</p> : <p><strong>O</strong>'s turn</p>}
+      {isX ? (
+        <p>
+          <strong>X</strong>'s turn
+        </p>
+      ) : (
+        <p>
+          <strong>O</strong>'s turn
+        </p>
+      )}
 
       <div className="row">
         <Square
