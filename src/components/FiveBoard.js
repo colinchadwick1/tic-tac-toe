@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Square from "./Square";
-const initialState = [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
-];
-const initialScore = {
-  X: 0,
-  O: 0,
-};
+
 
 function FiveBoard() {
+  const initialState = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ];
+
   const initialScore = {
     X: 0,
     O: 0,
@@ -98,7 +96,7 @@ function FiveBoard() {
     return draw;
   };
   return (
-    <div className="app-header">
+    <div className="board">
       {isX ? <p>X's turn</p> : <p>O's turn</p>}
 
       <div className="row jc-center">
@@ -190,7 +188,7 @@ function FiveBoard() {
         >
           Clear Game
         </button>
-        <button className="clear size" onClick={() => setScore(initialScore)}>
+        <button className="clear size" onClick={() => setScore(initialScore) }>
           Clear Score
         </button>
       </div>

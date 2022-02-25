@@ -1,3 +1,7 @@
+html{
+  height: 100%;
+
+}
 :root {
   --red: #DF3749;
   --gray: #494848;
@@ -10,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 code {
@@ -29,11 +34,15 @@ code {
 
 .heading-text {
   color: var(--gray);
-  font-size: 42px;
+  font-size: 2em;
   font-family: 'Besley' , serif;
-  font-weight: bolder;
   text-align: center;
-  margin: 50px;
+  margin: 0px;
+}
+.sizing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .row {
@@ -51,13 +60,13 @@ code {
 }
 
 .square {
-  min-width: 100px;
-  min-height: 100px;
-  font-size: 64px;
+  width: 10vw;
+  height: 10vh;
+  font-size: 3em;
   text-align: center;
   color: var(--gray);
   font-weight: bolder;
-  padding: 30px;
+  padding: 20px
 }
 
 .border-bottom-right {
@@ -67,6 +76,7 @@ code {
 
 .border-bottom {
   border-bottom: 15px solid var(--red);
+
 }
 
 .border-right {
@@ -74,7 +84,7 @@ code {
 }
 
 .score-board {
-  width: 30%;
+  width: 320px;
   display: grid;
   grid-auto-flow: column;
   margin-top: 5px;
@@ -104,19 +114,42 @@ code {
 .O{
   color: var(--gray)
 }
-.size{
-  background-color: white;
-  color: var(--gray);
-  border: 2px solid var(--red);
-  cursor: pointer;
-  border-radius: 10%;
-  margin: 10px;
-}
-.wrapper{
+
+
+.board{
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 65vh;
+  max-width: 100vw;
 }
 .buttons {
   display: flex;
 }
+.clear{
+
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  height: 34px;
+  padding: 0 13px;
+  color: #fff;
+  vertical-align: top;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+  background: var(--red);
+  border-color: var(--red);
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 11px;
+ margin: 10px;
+  }
+  .clear:hover {
+    background: #e4461b;
+    border-color: #e4461b;
+  
+}
+
+

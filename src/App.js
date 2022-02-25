@@ -16,20 +16,22 @@ function App() {
   };
 
 return (
-  <div className="wrapper">
+  <div className="container">
         <h2 className="heading-text">O's and X's</h2>
+  <div className="sizing">
         {size === "three" ? (
           <button 
-          className="size"
+          className="clear"
           name="five"
           onClick={(e => handleOnClick(e.target.name))} >5x5</button>
 
         ) : (
           <button 
-          className="size"
+          className="clear"
           name="three"
           onClick={(e => handleOnClick(e.target.name))} >3x3</button>
         )}
+  </div>
   
 
   {size === "three" ? (

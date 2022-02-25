@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Square from "./Square";
-const initialState = ["", "", "", "", "", "", "", "", ""];
+
+
+function ThreeBoard() {
+  const initialState = ["", "", "", "", "", "", "", "", ""];
 const initialScore = {
   X: 0,
   O: 0,
 };
-
-function ThreeBoard() {
   const [gameState, setGameState] = useState(initialState);
   const [isX, setIsX] = useState(false);
   const [score, setScore] = useState(initialScore);
@@ -65,9 +66,8 @@ function ThreeBoard() {
     return draw
 
   }
-
   return (
-    <div className="wrapper">
+    <div className="board">
       {isX ? <p>X's turn</p> : <p>O's turn</p>}
 
       <div className="row jc-center">
