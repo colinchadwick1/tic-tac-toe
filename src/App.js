@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Square from "./components/Square";
+import React, { useState } from "react";
 import ThreeBoard from "./components/ThreeBoard";
 import FiveBoard from "./components/FiveBoard";
 
