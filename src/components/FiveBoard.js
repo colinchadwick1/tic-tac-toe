@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Square from "./Square";
 
-
 function FiveBoard() {
   const initialState = [
     "",
@@ -18,7 +17,7 @@ function FiveBoard() {
     "",
     "",
     "",
-    ""
+    "",
   ];
 
   const initialScore = {
@@ -35,8 +34,6 @@ function FiveBoard() {
       strings[index] = isX ? "X" : "O";
       setGameState(strings);
       setIsX(!isX);
-
-
     }
   };
   useEffect(() => {
@@ -97,9 +94,17 @@ function FiveBoard() {
   };
   return (
     <div className="board">
-      {isX ? <p>X's turn</p> : <p>O's turn</p>}
+      {isX ? (
+        <p>
+          <strong>X</strong>'s turn
+        </p>
+      ) : (
+        <p>
+          <strong>O</strong>'s turn
+        </p>
+      )}
 
-      <div className="row jc-center">
+      <div className="row">
         <Square
           className="border-bottom-right"
           state={gameState[0]}
@@ -126,7 +131,7 @@ function FiveBoard() {
           onClick={() => handleClick(4)}
         />
       </div>
-      <div className="row jc-center">
+      <div className="row">
         <Square
           className="border-bottom-right"
           state={gameState[5]}
@@ -153,7 +158,7 @@ function FiveBoard() {
           onClick={() => handleClick(9)}
         />
       </div>
-      <div className="row jc-center">
+      <div className="row">
         <Square
           className="border-right"
           state={gameState[10]}
@@ -188,7 +193,7 @@ function FiveBoard() {
         >
           Clear Game
         </button>
-        <button className="clear size" onClick={() => setScore(initialScore) }>
+        <button className="clear size" onClick={() => setScore(initialScore)}>
           Clear Score
         </button>
       </div>

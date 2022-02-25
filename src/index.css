@@ -1,16 +1,15 @@
-html{
+html {
   height: 100%;
-
 }
 :root {
-  --red: #DF3749;
+  --red: #df3749;
   --gray: #494848;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,24 +17,14 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.app-header {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  text-align: center;
-  color: var(--gray);
-  justify-content: center;
-  align-items: center;
 }
 
 .heading-text {
   color: var(--gray);
   font-size: 2em;
-  font-family: 'Besley' , serif;
+  font-family: "Besley", serif;
   text-align: center;
   margin: 0px;
 }
@@ -48,15 +37,12 @@ code {
 .row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-}
-
-.jc-center {
-  justify-content: center;
 }
 
 .square {
@@ -66,7 +52,7 @@ code {
   text-align: center;
   color: var(--gray);
   font-weight: bolder;
-  padding: 20px
+  padding: 20px;
 }
 
 .border-bottom-right {
@@ -76,7 +62,6 @@ code {
 
 .border-bottom {
   border-bottom: 15px solid var(--red);
-
 }
 
 .border-right {
@@ -100,23 +85,22 @@ code {
 }
 
 .score-board div:first-child {
-  background-color: #CD493A;
+  background-color: #cd493a;
 }
 
-.score-board{
+.score-board {
   margin: 10px;
 }
 
-.X{
-  color: var(--red)
+.X {
+  color: var(--red);
 }
 
-.O{
-  color: var(--gray)
+.O {
+  color: var(--gray);
 }
 
-
-.board{
+.board {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,8 +110,7 @@ code {
 .buttons {
   display: flex;
 }
-.clear{
-
+.clear {
   display: inline-block;
   outline: 0;
   text-align: center;
@@ -138,18 +121,15 @@ code {
   vertical-align: top;
   border-radius: 3px;
   border: 1px solid transparent;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   background: var(--red);
   border-color: var(--red);
   font-weight: 600;
   line-height: 16px;
   font-size: 11px;
- margin: 10px;
-  }
-  .clear:hover {
-    background: #e4461b;
-    border-color: #e4461b;
-  
+  margin: 10px;
 }
-
-
+.clear:hover {
+  background: #e4461b;
+  border-color: #e4461b;
+}

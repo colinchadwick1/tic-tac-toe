@@ -68,9 +68,9 @@ const initialScore = {
   }
   return (
     <div className="board">
-      {isX ? <p>X's turn</p> : <p>O's turn</p>}
+      {isX ? <p><strong>X</strong>'s turn</p> : <p><strong>O</strong>'s turn</p>}
 
-      <div className="row jc-center">
+      <div className="row">
         <Square
           className="border-bottom-right"
           state={gameState[0]}
@@ -87,7 +87,7 @@ const initialScore = {
           onClick={() => handleClick(2)}
         />
       </div>
-      <div className="row jc-center">
+      <div className="row">
         <Square
           className="border-bottom-right"
           state={gameState[3]}
@@ -104,7 +104,7 @@ const initialScore = {
           onClick={() => handleClick(5)}
         />
       </div>
-      <div className="row jc-center">
+      <div className="row">
         <Square
           className="border-right"
           state={gameState[6]}
