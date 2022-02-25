@@ -19,15 +19,20 @@ function App() {
 
 return (
   <div className="wrapper">
-  <button
-  className="size"
-  name="three"
-  onClick={(e => handleOnClick(e.target.name))} >3x3</button>
-  <button 
-  className="size"
-  name="five"
-  onClick={(e => handleOnClick(e.target.name))} >5x5</button>
         <h2 className="heading-text">O's and X's</h2>
+        {size === "three" ? (
+          <button 
+          className="size"
+          name="five"
+          onClick={(e => handleOnClick(e.target.name))} >5x5</button>
+
+        ) : (
+          <button 
+          className="size"
+          name="three"
+          onClick={(e => handleOnClick(e.target.name))} >3x3</button>
+        )}
+  
 
   {size === "three" ? (
     <ThreeBoard></ThreeBoard>

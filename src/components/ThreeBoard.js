@@ -6,9 +6,7 @@ const initialScore = {
   O: 0,
 };
 
-
 function ThreeBoard() {
-
   const [gameState, setGameState] = useState(initialState);
   const [isX, setIsX] = useState(false);
   const [score, setScore] = useState(initialScore);
@@ -24,9 +22,15 @@ function ThreeBoard() {
   };
   useEffect(() => {
     const winner = checkWinner();
+    const draw = checkDraw()
     if (winner) {
       alert(`${winner} has won`);
       setGameState(initialState);
+    }
+    if(draw) {
+      alert("It's a draw");
+      setGameState(initialState);
+
     }
   }, [gameState]);
 
@@ -56,6 +60,13 @@ function ThreeBoard() {
     }
     return null;
   };
+
+  const checkDraw = () => {
+    let strings = Array.from(gameState);
+    const draw = !strings.includes("")
+    return draw
+
+  }
 
   return (
     <div className="app-header">
@@ -112,12 +123,17 @@ function ThreeBoard() {
         <div className="x-score">{score.X}</div>
         <div className="o-score">{score.O}</div>
       </div>
-      <button className="clear" onClick={() => setGameState(initialState)}>
-        Clear Game
-      </button>
-      <button className="clear" onClick={() => setScore(initialScore)}>
-        Clear Score
-      </button>
+      <div className="buttons">
+        <button
+          className="clear size"
+          onClick={() => setGameState(initialState)}
+        >
+          Clear Game
+        </button>
+        <button className="clear size" onClick={() => setScore(initialScore)}>
+          Clear Score
+        </button>
+      </div>
     </div>
   );
 }

@@ -183,12 +183,14 @@ function FiveBoard() {
         <div className="x-score">{score.X}</div>
         <div className="o-score">{score.O}</div>
       </div>
-      <button className="clear" onClick={() => setGameState(initialState)}>
+      <div className="buttons">
+      <button className="clear size" onClick={() => setGameState(initialState)}>
         Clear Game
       </button>
-      <button className="clear" onClick={() => setScore(initialScore)}>
+      <button className="clear size" onClick={() => setScore(initialScore)}>
         Clear Score
       </button>
+      </div>
     </div>
   );
 }
