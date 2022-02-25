@@ -15,17 +15,7 @@ const initialState = [
   "",
   "",
   "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
+  ""
 ];
 const initialScore = {
   X: 0,
@@ -47,13 +37,19 @@ function FiveBoard() {
       strings[index] = isX ? "X" : "O";
       setGameState(strings);
       setIsX(!isX);
-      console.log(isX);
+
+
     }
   };
   useEffect(() => {
     const winner = checkWinner();
+    const draw = checkDraw();
     if (winner) {
       alert(`${winner} has won`);
+      setGameState(initialState);
+    }
+    if (draw && !winner) {
+      alert("It's a draw");
       setGameState(initialState);
     }
   }, [gameState]);
@@ -90,13 +86,17 @@ function FiveBoard() {
       ) {
         score[gameState[a]]++;
 
-        console.log(gameState[a], "gamestateA");
         return gameState[a];
       }
     }
     return null;
   };
 
+  const checkDraw = () => {
+    let strings = Array.from(gameState);
+    const draw = !strings.includes("");
+    return draw;
+  };
   return (
     <div className="app-header">
       {isX ? <p>X's turn</p> : <p>O's turn</p>}
@@ -184,12 +184,15 @@ function FiveBoard() {
         <div className="o-score">{score.O}</div>
       </div>
       <div className="buttons">
-      <button className="clear size" onClick={() => setGameState(initialState)}>
-        Clear Game
-      </button>
-      <button className="clear size" onClick={() => setScore(initialScore)}>
-        Clear Score
-      </button>
+        <button
+          className="clear size"
+          onClick={() => setGameState(initialState)}
+        >
+          Clear Game
+        </button>
+        <button className="clear size" onClick={() => setScore(initialScore)}>
+          Clear Score
+        </button>
       </div>
     </div>
   );

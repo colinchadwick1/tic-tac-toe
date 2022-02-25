@@ -17,7 +17,6 @@ function ThreeBoard() {
       strings[index] = isX ? "X" : "O";
       setGameState(strings);
       setIsX(!isX);
-      console.log(isX);
     }
   };
   useEffect(() => {
@@ -27,7 +26,7 @@ function ThreeBoard() {
       alert(`${winner} has won`);
       setGameState(initialState);
     }
-    if(draw) {
+    if(draw && !winner) {
       alert("It's a draw");
       setGameState(initialState);
 
@@ -54,7 +53,6 @@ function ThreeBoard() {
       ) {
         score[gameState[a]]++;
 
-        console.log(gameState[a], "gamestateA");
         return gameState[a];
       }
     }
@@ -69,7 +67,7 @@ function ThreeBoard() {
   }
 
   return (
-    <div className="app-header">
+    <div className="wrapper">
       {isX ? <p>X's turn</p> : <p>O's turn</p>}
 
       <div className="row jc-center">

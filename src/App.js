@@ -10,10 +10,8 @@ function App() {
   const handleOnClick = (name) => {
     if (name === "three") {
       setSize("three");
-      console.log(size)
     } else if (name === "five") {
       setSize("five");
-      console.log(size)
     }
   };
 
