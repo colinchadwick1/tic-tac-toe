@@ -23,7 +23,7 @@ function App() {
             name="five"
             onClick={(e) => handleOnClick(e.target.name)}
           >
-            5x5
+            5x3
           </button>
         ) : (
           <button
